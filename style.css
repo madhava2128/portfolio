@@ -1,15 +1,15 @@
 :root {
-  --primary-color: #2D4654;      /* Deep teal */
-  --secondary-color: #111618;    /* Muted teal */
-  --accent-color: #000000;       /* Warm orange */
-  --bg-color: #c0bca9;           /* Light warm gray */
+  --primary-color: #388fc2;      /* Deep teal */
+  --secondary-color: #4A6B7A;    /* Medium teal */
+  --accent-color: #a73044;       /* Warm orange */
+  --bg-color: #F8FAFB;           /* Light gray background */
   --card-bg: #ffffff;            /* White */
   --text-color: #2D4654;         /* Dark teal for contrast */
-  --text-secondary: #7b3a3a;     /* Medium gray */
-  --border-color: #1e62a5;
-  --shadow-light: rgba(0,0,0,0.05);
-  --shadow-medium: rgba(0,0,0,0.1);
-  --shadow-heavy: rgba(16,8,8,0.15);
+  --text-secondary: #6B7280;     /* Medium gray */
+  --border-color: #E5E7EB;       /* Light gray border */
+  --shadow-light: rgba(45,70,84,0.08);
+  --shadow-medium: rgba(45,70,84,0.15);
+  --shadow-heavy: rgba(45,70,84,0.25);
   --focus-ring: #F2A154;
 }
 
@@ -27,45 +27,16 @@
   --shadow-heavy: rgba(0,0,0,0.3);
   --focus-ring: #DD6B20;
 }
-/* Resume Download Button Styles */
-.resume-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  margin-top: 20px;
-  border: none;
-  cursor: pointer;
-  font-family: 'Noto Sans', sans-serif;
-}
 
-.resume-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
-.resume-btn:active {
-  transform: translateY(0);
+.noto-sans {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
-
-/* Dark mode support */
-.dark-mode .resume-btn {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a3f8f 100%);
-}
-
-.dark-mode .resume-btn:hover {
-  background: linear-gradient(135deg, #6a3f8f 0%, #5a6fd8 100%);
-}
-
 * {
   box-sizing: border-box;
 }
@@ -74,7 +45,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Caveat', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
   font-size: 24px;
   margin: 0;
   padding: 0;
@@ -108,7 +79,7 @@ header {
   height: 50px;
   border-radius: 50%;
   background: var(--accent-color);
-  color: #fff;
+  color: var(--card-bg);
   font: bold 1.5rem sans-serif;
   display: flex;
   align-items: center;
@@ -141,7 +112,7 @@ nav a {
 
 nav a:hover, nav a.active {
   background: var(--primary-color);
-  color: #000000;
+  color: var(--card-bg);
 }
 nav a::after {
   content: '';
@@ -318,27 +289,7 @@ h2::after {
   color: var(--primary-color);
 }
 
-/* Skills list */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-.skill-badge {
-  background: var(--primary-color);
-  color: #fff;
-  padding: .6em 1.4em;
-  font-size: 1rem;
-  border-radius: 999px;
-  box-shadow: 0 4px 12px var(--shadow-light);
-  transition: transform .2s, background .2s;
-  cursor: default;
-}
-.skill-badge:hover {
-  background: var(--accent-color);
-  transform: translateY(-3px);
-}
+
 
 /* Education & achievements */
 .education-list {
@@ -400,87 +351,240 @@ h2::after {
   line-height: 1.5;
 }
 /* work */
-.work-grid {
+#work {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+#work:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  border-color: var(--accent-color);
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
   position: relative;
-  padding-left: 2.5rem;
-  margin-top: 2rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.work-timeline {
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
 }
 
-.work-grid::before {
+.work-item {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 1rem;
-  width: 3px;
+  left: 0;
+  width: 4px;
   height: 100%;
   background: var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.work-card {
-  position: relative;
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+.work-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  border-color: var(--accent-color);
+}
+
+.work-item:hover::before {
+  opacity: 1;
+}
+
+.work-header {
+  margin-bottom: 1.5rem;
+}
+
+.company-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.logo-container {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
   border-radius: 12px;
-  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: var(--card-bg);
+  font-weight: 600;
+  font-size: 0.8rem;
+  font-family: 'Noto Sans', sans-serif;
   box-shadow: 0 4px 12px var(--shadow-light);
-  transition: all 0.3s ease;
-  margin-left: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.work-card::before {
-  content: '';
+.logo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
   position: absolute;
-  left: -1.55rem;
-  top: 1.5rem;
-  width: 14px;
-  height: 14px;
-  background: var(--accent-color);
-  border: 3px solid var(--card-bg);
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--accent-color);
+  top: 0;
+  left: 0;
 }
 
-.work-card h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin: 0 0 0.5rem 0;
-}
-
-.work-card h3::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-  margin-top: 0.4rem;
-  border-radius: 2px;
-}
-
-.work-card .company {
+.logo-placeholder {
+  position: relative;
+  z-index: 1;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--secondary-color);
-  margin-bottom: 0.75rem;
-  display: block;
-}
-
-.work-card p {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin: 0.5rem 0 1rem 0;
-}
-
-.work-date {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--accent-color);
-  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+.title-company {
+  flex-grow: 1;
+}
+
+.position {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.3;
+}
+
+.company-details {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+}
+
+.company-name {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.work-type, .work-period {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.separator {
+  color: var(--border-color);
+  font-weight: 300;
+}
+
+.work-description {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.achievement-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.achievement-item {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.bullet {
+  color: var(--accent-color);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.achievement-item strong {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #work {
+      padding: 2rem 1rem;
+  }
+  
+  .work-item {
+      padding: 1.5rem;
+  }
+  
+  .company-info {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+  }
+  
+  .logo-container {
+      align-self: center;
+  }
+  
+  .company-details {
+      justify-content: center;
+  }
+  
+  .position {
+      font-size: 1.2rem;
+      text-align: center;
+  }
+  
+  .achievement-item {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .company-details {
+      flex-direction: column;
+      gap: 0.25rem;
+  }
+  
+  .separator {
+      display: none;
+  }
+}
 /* achievements */
 
 .achievements-grid {
@@ -700,3 +804,154 @@ footer .contact-links {
   transition: transform 10s ease-out; /* Smooth movement */
 }
 
+/* Resume Download Button Styles */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.resume-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.resume-btn:active {
+  transform: translateY(0);
+}
+
+/* Dark mode support */
+.dark-mode .resume-btn {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a3f8f 100%);
+}
+
+.dark-mode .resume-btn:hover {
+  background: linear-gradient(135deg, #6a3f8f 0%, #5a6fd8 100%);
+}
+
+
+
+/* Skills Section */
+.skills-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.skills-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  border-color: var(--accent-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-light);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px var(--shadow-medium);
+}
+
+.skill-category h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.skill-category h3::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.marketing h3::before {
+  background: var(--accent-color);
+}
+
+.technical h3::before {
+  background: var(--primary-color);
+}
+
+.tools h3::before {
+  background: var(--secondary-color);
+}
+
+.skill-item {
+  margin-bottom: 1.5rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.skill-percentage {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.skill-bar {
+  height: 10px;
+  background: var(--border-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+.marketing .skill-progress {
+  background: var(--accent-color);
+}
+
+.technical .skill-progress {
+  background: var(--primary-color);
+}
+
+.tools .skill-progress {
+  background: var(--secondary-color);
+}
