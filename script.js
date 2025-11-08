@@ -7,6 +7,23 @@ function setTheme(theme) {
   localStorage.setItem('theme', theme);
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const skillBars = document.querySelectorAll('.skill-progress');
+  
+  // Reset widths for animation
+  skillBars.forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0';
+    
+    // Animate after a short delay
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 300);
+  });
+});
+
 function toggleTheme() {
   const current = html.getAttribute('data-theme') || 'light';
   setTheme(current === 'light' ? 'dark' : 'light');
