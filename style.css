@@ -28,7 +28,7 @@
   --focus-ring: #DD6B20;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
+
 
 .noto-sans {
   font-family: "Noto Sans", sans-serif;
@@ -372,7 +372,7 @@ h2::after {
   color: var(--primary-color);
   margin-bottom: 1.5rem;
   position: relative;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans';
 }
 
 .section-title::after {
@@ -586,6 +586,21 @@ h2::after {
   }
 }
 /* achievements */
+#achievements {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow-light);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+#achievements:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+  border-color: var(--accent-color);
+}
 
 .achievements-grid {
   display: grid;
@@ -595,10 +610,10 @@ h2::after {
 }
 
 .achievement-card {
-  background: var(--card-bg);
+  background: var(--bg-color);
   border-radius: 10px;
   padding: 1.5rem;
-  box-shadow: 0 4px 16px var(--shadow-light);
+  box-shadow: 0 4px 12px var(--shadow-light);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -608,12 +623,10 @@ h2::after {
 }
 
 .achievement-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 22px var(--shadow-medium);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px var(--shadow-medium);
   border-color: var(--accent-color);
 }
-
-
 
 .achievement-card h3 {
   font-size: 1.2rem;
@@ -622,7 +635,7 @@ h2::after {
 }
 
 .achievement-card p {
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   margin: 0.3rem 0;
   line-height: 1.5;
